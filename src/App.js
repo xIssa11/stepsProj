@@ -45,22 +45,30 @@ function Steps() {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#FFF" }}
+            <Button
+              bgColor={"#7950f2"}
+              textColor="#FFF"
               onClick={handlePrevious}
             >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#FFF" }}
-              onClick={handleNext} // define a separate function for event handler and then call it
-              // onMouseEnter={() => alert("Test")}
-            >
-              Next
-            </button>
+              <span>👈 </span> Previous
+            </Button>
+            <Button bgColor={"#7950f2"} textColor="#FFF" onClick={handleNext}>
+              <span>👉</span> Next
+            </Button>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+function Button({ textColor, bgColor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
